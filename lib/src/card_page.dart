@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
-import '../../providers/index.dart';
 import 'index.dart';
 
 /// Widget used in details pages, like 'Launch Page' or 'Rocket Page'.
@@ -12,6 +11,7 @@ class CardPage extends StatelessWidget {
   const CardPage(this.body);
 
   factory CardPage.header({
+    @required BuildContext context,
     Widget leading,
     Widget subtitle,
     @required String title,
@@ -31,11 +31,9 @@ class CardPage extends StatelessWidget {
                   title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontFamily: 'ProductSans',
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
+                      .headline6
+                      .copyWith(fontSize: 18),
                 ),
                 if (subtitle != null) subtitle,
               ],
@@ -49,6 +47,7 @@ class CardPage extends StatelessWidget {
   }
 
   factory CardPage.body({
+    @required BuildContext context,
     String title,
     @required Widget body,
   }) {
@@ -59,11 +58,9 @@ class CardPage extends StatelessWidget {
             Text(
               title.toUpperCase(),
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 17,
-                fontFamily: 'ProductSans',
-                fontWeight: FontWeight.bold,
-              ),
+              style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
+                  .headline6
+                  .copyWith(fontSize: 18),
             ),
           body
         ],
@@ -74,13 +71,14 @@ class CardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
         side: BorderSide(
-          color: context.watch<ThemeProvider>().theme == Themes.black
-              ? Theme.of(context).dividerColor
-              : Colors.transparent,
+          color: Theme.of(context).dividerColor.withOpacity(
+                Theme.of(context).brightness == Brightness.dark ? 0.4 : 0.1,
+              ),
+          width: 2,
         ),
       ),
       child: Padding(

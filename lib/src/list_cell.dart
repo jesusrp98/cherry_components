@@ -20,6 +20,7 @@ class ListCell extends StatelessWidget {
     this.dense,
   });
 
+  // TODO
   // factory ListCell.svg({
   //   @required BuildContext context,
   //   @required String image,
@@ -106,10 +107,10 @@ class ListCell extends StatelessWidget {
 }
 
 /// TODO
-class TrailingNumber extends StatelessWidget {
+class CellTrailingText extends StatelessWidget {
   final String number;
 
-  const TrailingNumber(this.number);
+  const CellTrailingText(this.number);
 
   @override
   Widget build(BuildContext context) {
