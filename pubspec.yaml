@@ -16,6 +16,7 @@ dependencies:
   expand_widget:
   cached_network_image:
   flutter_svg:
+  row_item:
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:row_collection/row_collection.dart';
+import 'package:row_item/row_item.dart';
 
 /// Wrapper of the [RowItem.text] widget.
 class RowText extends StatelessWidget {
@@ -25,18 +25,19 @@ class RowText extends StatelessWidget {
 }
 
 /// Wrapper of the [RowItem.icon] widget.
-class RowIcon extends StatelessWidget {
+class RowBoolean extends StatelessWidget {
   final String title;
   final bool status;
 
-  const RowIcon(this.title, this.status);
+  const RowBoolean(this.title, this.status);
 
   @override
   Widget build(BuildContext context) {
-    return RowItem.icon(
+    return RowItem.boolean(
       title,
       status,
-      size: 18,
+      iconSize: 18,
+      outline: true,
       titleStyle:
           GoogleFonts.rubikTextTheme(Theme.of(context).textTheme).bodyText2,
     );
@@ -44,11 +45,11 @@ class RowIcon extends StatelessWidget {
 }
 
 /// Wrapper of the [RowItem.clickable] widget.
-class RowDialog extends StatelessWidget {
+class RowTap extends StatelessWidget {
   final String title, description, fallback;
   final Widget screen;
 
-  const RowDialog(
+  const RowTap(
     this.title,
     this.description, {
     @required this.fallback,
@@ -57,7 +58,7 @@ class RowDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RowItem.clickable(
+    return RowItem.tap(
       title,
       description ?? fallback,
       titleStyle:
