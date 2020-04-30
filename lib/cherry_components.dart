@@ -1,3 +1,3 @@
 library cherry_components;
 
-export 'src/details_cell.dart';
+export 'src/index.dart';
