@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
@@ -21,32 +22,32 @@ class ListCell extends StatelessWidget {
   });
 
   // TODO
-  // factory ListCell.svg({
-  //   @required BuildContext context,
-  //   @required String image,
-  //   Widget trailing,
-  //   @required String title,
-  //   String subtitle,
-  //   VoidCallback onTap,
-  //   bool dense,
-  // }) {
-  //   return ListCell(
-  //     leading: SvgPicture.asset(
-  //       image,
-  //       colorBlendMode: BlendMode.srcATop,
-  //       width: 40,
-  //       height: 40,
-  //       color: Theme.of(context).brightness == Brightness.light
-  //           ? Colors.black45
-  //           : null,
-  //     ),
-  //     trailing: trailing,
-  //     title: title,
-  //     subtitle: subtitle,
-  //     onTap: onTap,
-  //     dense: dense,
-  //   );
-  // }
+  factory ListCell.svg({
+    @required BuildContext context,
+    @required String image,
+    Widget trailing,
+    @required String title,
+    String subtitle,
+    VoidCallback onTap,
+    bool dense,
+  }) {
+    return ListCell(
+      leading: SvgPicture.asset(
+        image,
+        colorBlendMode: BlendMode.srcATop,
+        width: 40,
+        height: 40,
+        color: Theme.of(context).brightness == Brightness.light
+            ? Colors.black45
+            : null,
+      ),
+      trailing: trailing,
+      title: title,
+      subtitle: subtitle,
+      onTap: onTap,
+      dense: dense,
+    );
+  }
 
   factory ListCell.icon({
     @required IconData icon,

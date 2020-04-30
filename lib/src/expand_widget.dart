@@ -3,26 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 /// TODO
-// class RowExpand extends StatelessWidget {
-//   final Widget child;
+class RowExpand extends StatelessWidget {
+  final Widget child;
 
-//   const RowExpand(this.child);
+  const RowExpand(this.child);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return ExpandChild(
-//       minMessage: FlutterI18n.translate(
-//         context,
-//         'spacex.other.more_details',
-//       ),
-//       maxMessage: FlutterI18n.translate(
-//         context,
-//         'spacex.other.less_details',
-//       ),
-//       child: child,
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return ExpandChild(
+      child: child,
+    );
+  }
+}
 
 /// TODO
 class TextExpand extends StatelessWidget {
@@ -51,29 +43,30 @@ class TextExpand extends StatelessWidget {
 }
 
 /// TODO
-// class ExpandList extends StatelessWidget {
-//   final Widget child;
+class ExpandList extends StatelessWidget {
+  final Widget child;
+  final String text;
 
-//   const ExpandList(this.child);
+  const ExpandList({
+    this.child,
+    this.text,
+  });
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return ShowChild(
-//       indicator: Padding(
-//         padding: EdgeInsets.all(8),
-//         child: Text(
-//           FlutterI18n.translate(
-//             context,
-//             'spacex.other.all_payload',
-//           ),
-//           style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-//               .bodyText2
-//               .copyWith(
-//                 color: Theme.of(context).textTheme.caption.color,
-//               ),
-//         ),
-//       ),
-//       child: child,
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return ShowChild(
+      indicator: Padding(
+        padding: EdgeInsets.all(8),
+        child: Text(
+          text,
+          style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
+              .bodyText2
+              .copyWith(
+                color: Theme.of(context).textTheme.caption.color,
+              ),
+        ),
+      ),
+      child: child,
+    );
+  }
+}
