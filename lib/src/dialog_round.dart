@@ -2,38 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
-/// Custom SimpleDialog widget, with a preset title style.
-/// It also has, as its name suggets, rounded corners.
-class RoundDialog extends StatelessWidget {
-  final String title;
-  final List<Widget> children;
+/// TODO
+const kDialogCornerRadius = 12.0;
 
-  const RoundDialog({
-    @required this.title,
-    @required this.children,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: Text(
-        title.toUpperCase(),
-        style: GoogleFonts.rubikTextTheme(
-          Theme.of(context).textTheme,
-        ).headline6,
-        textAlign: TextAlign.center,
-      ),
-      titlePadding: EdgeInsets.only(top: 20, left: 20, right: 20),
-      contentPadding: EdgeInsets.symmetric(vertical: 16),
+/// TODO
+Future<T> showRoundDialog<T>({
+  @required BuildContext context,
+  @required String title,
+  @required List<Widget> children,
+}) {
+  return showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      backgroundColor: Theme.of(context).dialogBackgroundColor,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.all(
+          Radius.circular(kDialogCornerRadius),
+        ),
       ),
-      children: children,
-    );
-  }
+      child: _RoundDialog.center(
+        title: title,
+        children: children,
+      ),
+    ),
+  );
 }
 
-///
+/// TODO
 Future<T> showBottomRoundDialog<T>({
   @required BuildContext context,
   @required String title,
@@ -42,43 +37,79 @@ Future<T> showBottomRoundDialog<T>({
   return showModalBottomSheet(
     context: context,
     backgroundColor: Theme.of(context).dialogBackgroundColor,
-    builder: (context) => _BottomRoundDialog(
+    builder: (context) => _RoundDialog.bottom(
       title: title,
       children: children,
     ),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(kDialogCornerRadius),
+        topRight: Radius.circular(kDialogCornerRadius),
+      ),
     ),
   );
 }
 
-///
-class _BottomRoundDialog extends StatelessWidget {
+/// TODO
+class _RoundDialog extends StatelessWidget {
   final String title;
   final List<Widget> children;
+  final bool isBottomDialog;
 
-  const _BottomRoundDialog({
+  factory _RoundDialog.center({
+    Key key,
+    @required String title,
+    @required List<Widget> children,
+  }) {
+    return _RoundDialog._(
+      key: key,
+      title: title,
+      children: children,
+      isBottomDialog: false,
+    );
+  }
+
+  factory _RoundDialog.bottom({
+    Key key,
+    @required String title,
+    @required List<Widget> children,
+  }) {
+    return _RoundDialog._(
+      key: key,
+      title: title,
+      children: children,
+      isBottomDialog: true,
+    );
+  }
+
+  const _RoundDialog._({
     Key key,
     this.title,
     this.children,
+    this.isBottomDialog = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      minimum: EdgeInsets.only(bottom: 42),
+      minimum: isBottomDialog
+          ? EdgeInsets.only(bottom: 42)
+          : EdgeInsets.only(bottom: 20),
       bottom: false,
       child: RowLayout(
         mainAxisSize: MainAxisSize.min,
         padding: EdgeInsets.only(top: 20),
         space: 16,
         children: <Widget>[
-          Text(
-            title.toUpperCase(),
-            style: GoogleFonts.rubikTextTheme(
-              Theme.of(context).textTheme,
-            ).headline6,
-            textAlign: TextAlign.center,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              title.toUpperCase(),
+              style: GoogleFonts.rubikTextTheme(
+                Theme.of(context).textTheme,
+              ).headline6,
+              textAlign: TextAlign.center,
+            ),
           ),
           Flexible(
             child: SingleChildScrollView(
