@@ -1,8 +1,7 @@
 name: cherry_components
 description: A new Flutter package project.
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/jesusrp98/cherry_components
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -11,12 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_fonts: ^0.4.0
-  row_collection:
-  expand_widget:
-  cached_network_image:
-  flutter_svg:
-  row_item:
+  google_fonts: ^1.1.0
+  row_collection: ^0.2.4
+  expand_widget: ^1.0.0
+  cached_network_image: ^2.3.0-rc
+  flutter_svg: ^0.17.4
+  row_item: ^1.2.0+1
 
 dev_dependencies:
   flutter_test:
