@@ -31,7 +31,7 @@ class TextExpand extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpandText(
       text,
-      maxLength: lines,
+      maxLines: lines,
       textAlign: TextAlign.justify,
       style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
           .bodyText2
@@ -54,18 +54,15 @@ class ExpandList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShowChild(
-      indicator: Padding(
-        padding: EdgeInsets.all(8),
-        child: Text(
-          text,
-          style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-              .bodyText2
-              .copyWith(
-                color: Theme.of(context).textTheme.caption.color,
-              ),
-        ),
-      ),
+    return ExpandChild(
+      expandArrowStyle: ExpandArrowStyle.text,
+      hideArrowOnExpanded: true,
+      collapsedHint: text,
+      hintTextStyle: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
+          .bodyText2
+          .copyWith(
+            color: Theme.of(context).textTheme.caption.color,
+          ),
       child: child,
     );
   }
