@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
 import 'index.dart';
 
-/// Widget used in details pages, like 'Launch Page' or 'Rocket Page'.
+/// TODO
 class CardPage extends StatelessWidget {
   final Widget body;
 
@@ -31,7 +30,8 @@ class CardPage extends StatelessWidget {
                   title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
+                  style: Theme.of(context)
+                      .textTheme
                       .headline6
                       .copyWith(fontSize: 18),
                 ),
@@ -58,9 +58,8 @@ class CardPage extends StatelessWidget {
             Text(
               title.toUpperCase(),
               textAlign: TextAlign.center,
-              style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-                  .headline6
-                  .copyWith(fontSize: 18),
+              style:
+                  Theme.of(context).textTheme.headline6.copyWith(fontSize: 18),
             ),
           body
         ],

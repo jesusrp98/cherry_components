@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:row_item/row_item.dart';
 
 /// Wrapper of the [RowItem.text] widget.
@@ -13,11 +12,8 @@ class RowText extends StatelessWidget {
     return RowItem.text(
       title,
       description,
-      titleStyle:
-          GoogleFonts.rubikTextTheme(Theme.of(context).textTheme).bodyText2,
-      descriptionStyle: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-          .bodyText2
-          .copyWith(
+      titleStyle: Theme.of(context).textTheme.bodyText2,
+      descriptionStyle: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),
     );
@@ -38,8 +34,7 @@ class RowBoolean extends StatelessWidget {
       status,
       iconSize: 18,
       outline: true,
-      titleStyle:
-          GoogleFonts.rubikTextTheme(Theme.of(context).textTheme).bodyText2,
+      titleStyle: Theme.of(context).textTheme.bodyText2,
     );
   }
 }
@@ -61,12 +56,10 @@ class RowTap extends StatelessWidget {
     return RowItem.tap(
       title,
       description ?? fallback,
-      titleStyle:
-          GoogleFonts.rubikTextTheme(Theme.of(context).textTheme).bodyText2,
-      descriptionStyle: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-          .bodyText2
-          .copyWith(
+      titleStyle: Theme.of(context).textTheme.bodyText2,
+      descriptionStyle: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
+            decoration: TextDecoration.underline,
           ),
       onTap: description == null
           ? null

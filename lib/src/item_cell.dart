@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
 /// Shows information rendering a small clickable widget.
@@ -31,9 +30,7 @@ class ItemCell extends StatelessWidget {
           Separator.spacer(space: 6),
           Text(
             text,
-            style: GoogleFonts.rubikTextTheme(
-              Theme.of(context).textTheme,
-            ).bodyText2.copyWith(
+            style: Theme.of(context).textTheme.bodyText2.copyWith(
                   color: Theme.of(context).textTheme.caption.color,
                   decoration: onTap == null
                       ? TextDecoration.none

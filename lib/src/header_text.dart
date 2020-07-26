@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 /// This widget is used in the 'Settings' & 'About' screens.
 /// It categorizes items based on a theme.
@@ -18,9 +17,7 @@ class HeaderText extends StatelessWidget {
         padding: EdgeInsets.zero,
         child: Text(
           text,
-          style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-              .bodyText2
-              .copyWith(
+          style: Theme.of(context).textTheme.bodyText2.copyWith(
                 color: Theme.of(context).accentColor,
                 fontWeight: FontWeight.bold,
               ),

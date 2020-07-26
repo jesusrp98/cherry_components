@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
 /// TODO
@@ -105,9 +104,7 @@ class _RoundDialog extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               title.toUpperCase(),
-              style: GoogleFonts.rubikTextTheme(
-                Theme.of(context).textTheme,
-              ).headline6,
+              style: Theme.of(context).textTheme.headline6,
               textAlign: TextAlign.center,
             ),
           ),

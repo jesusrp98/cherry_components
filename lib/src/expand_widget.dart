@@ -1,6 +1,5 @@
 import 'package:expand_widget/expand_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 /// TODO
 class RowExpand extends StatelessWidget {
@@ -33,9 +32,7 @@ class TextExpand extends StatelessWidget {
       text,
       maxLines: lines,
       textAlign: TextAlign.justify,
-      style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-          .bodyText2
-          .copyWith(
+      style: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),
     );
@@ -57,10 +54,7 @@ class ExpandList extends StatelessWidget {
     return ExpandChild(
       expandArrowStyle: ExpandArrowStyle.text,
       hideArrowOnExpanded: true,
-      collapsedHint: text,
-      hintTextStyle: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-          .bodyText2
-          .copyWith(
+      hintTextStyle: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),
       child: child,

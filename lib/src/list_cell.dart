@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
 /// TODO
@@ -79,9 +78,7 @@ class ListCell extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: GoogleFonts.rubikTextTheme(
-              Theme.of(context).textTheme,
-            ).subtitle1.copyWith(
+            style: Theme.of(context).textTheme.subtitle1.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
             overflow: TextOverflow.ellipsis,
@@ -94,9 +91,7 @@ class ListCell extends StatelessWidget {
           ? null
           : Text(
               subtitle,
-              style: GoogleFonts.rubikTextTheme(
-                Theme.of(context).textTheme,
-              ).bodyText2.copyWith(
+              style: Theme.of(context).textTheme.bodyText2.copyWith(
                     color: Theme.of(context).textTheme.caption.color,
                   ),
             ),
@@ -117,9 +112,7 @@ class CellTrailingText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       number,
-      style: GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)
-          .bodyText2
-          .copyWith(
+      style: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),
     );

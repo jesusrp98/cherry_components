@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 const _kRadioSize = 22.0;
 
@@ -38,9 +37,7 @@ class RadioCell<T> extends StatelessWidget {
             SizedBox(width: 16),
             Text(
               title,
-              style: GoogleFonts.rubikTextTheme(
-                Theme.of(context).textTheme,
-              ).subtitle1,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
           ],
         ),

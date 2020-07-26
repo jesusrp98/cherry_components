@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:row_collection/row_collection.dart';
 
 import 'expand_widget.dart';
@@ -44,9 +43,7 @@ class DetailsCell extends StatelessWidget {
                 child: Center(
                   child: Text(
                     leading,
-                    style: GoogleFonts.rubikTextTheme(
-                      Theme.of(context).textTheme,
-                    ).headline6.copyWith(
+                    style: Theme.of(context).textTheme.headline6.copyWith(
                           fontSize: 18,
                           color:
                               Theme.of(context).accentTextTheme.subtitle1.color,
@@ -65,9 +62,7 @@ class DetailsCell extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     title,
-                    style: GoogleFonts.rubikTextTheme(
-                      Theme.of(context).textTheme,
-                    ).subtitle1.copyWith(
+                    style: Theme.of(context).textTheme.subtitle1.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                     overflow: TextOverflow.ellipsis,
@@ -76,9 +71,7 @@ class DetailsCell extends StatelessWidget {
                   if (subtitle != null)
                     Text(
                       subtitle,
-                      style: GoogleFonts.rubikTextTheme(
-                        Theme.of(context).textTheme,
-                      ).bodyText2,
+                      style: Theme.of(context).textTheme.bodyText2,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
