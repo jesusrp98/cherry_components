@@ -54,6 +54,7 @@ class ExpandList extends StatelessWidget {
     return ExpandChild(
       expandArrowStyle: ExpandArrowStyle.text,
       hideArrowOnExpanded: true,
+      collapsedHint: text,
       hintTextStyle: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),
