@@ -45,6 +45,7 @@ class DetailsCell extends StatelessWidget {
                     leading,
                     style: Theme.of(context).textTheme.headline6.copyWith(
                           fontSize: 18,
+                          fontWeight: FontWeight.bold,
                           color:
                               Theme.of(context).accentTextTheme.subtitle1.color,
                         ),
