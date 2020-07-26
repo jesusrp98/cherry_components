@@ -33,7 +33,7 @@ class CardPage extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headline6
-                      .copyWith(fontSize: 18),
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 if (subtitle != null) subtitle,
               ],
@@ -58,8 +58,10 @@ class CardPage extends StatelessWidget {
             Text(
               title.toUpperCase(),
               textAlign: TextAlign.center,
-              style:
-                  Theme.of(context).textTheme.headline6.copyWith(fontSize: 18),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           body
         ],
