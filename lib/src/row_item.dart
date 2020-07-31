@@ -59,7 +59,9 @@ class RowTap extends StatelessWidget {
       titleStyle: Theme.of(context).textTheme.bodyText2,
       descriptionStyle: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
-            decoration: TextDecoration.underline,
+            decoration: description != null
+                ? TextDecoration.underline
+                : TextDecoration.none,
           ),
       onTap: description == null
           ? null
