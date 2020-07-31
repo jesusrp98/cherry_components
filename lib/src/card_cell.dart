@@ -4,36 +4,39 @@ import 'package:row_collection/row_collection.dart';
 import 'index.dart';
 
 /// TODO
-class CardPage extends StatelessWidget {
-  final Widget body;
+class CardCell extends StatelessWidget {
+  final Widget child;
 
-  const CardPage(this.body);
+  const CardCell({@required this.child});
 
-  factory CardPage.header({
-    @required BuildContext context,
+  /// TODO
+  factory CardCell.header(
+    BuildContext context, {
     Widget leading,
-    Widget subtitle,
     @required String title,
+    Widget subtitle,
     @required String details,
   }) {
-    return CardPage(
-      RowLayout(children: <Widget>[
+    return CardCell(
+      child: RowLayout(children: <Widget>[
         Row(children: <Widget>[
-          if (leading != null) leading,
-          Separator.spacer(space: 12),
+          if (leading != null) ...[
+            leading,
+            Separator.spacer(space: 12),
+          ],
           Expanded(
             child: RowLayout(
-              crossAxisAlignment: CrossAxisAlignment.start,
               space: 8,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   title,
-                  overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline6
-                      .copyWith(fontWeight: FontWeight.bold, fontSize: 18),
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
                 ),
                 if (subtitle != null) subtitle,
               ],
@@ -46,24 +49,27 @@ class CardPage extends StatelessWidget {
     );
   }
 
-  factory CardPage.body({
-    @required BuildContext context,
-    String title,
-    @required Widget body,
+  /// TODO
+  factory CardCell.body(
+    BuildContext context, {
+    @required String title,
+    @required Widget child,
   }) {
-    return CardPage(
-      RowLayout(
+    return CardCell(
+      child: RowLayout(
         children: <Widget>[
           if (title != null)
             Text(
               title.toUpperCase(),
+              maxLines: 1,
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6
-                  .copyWith(fontWeight: FontWeight.bold, fontSize: 18),
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
             ),
-          body
+          child
         ],
       ),
     );
@@ -76,15 +82,15 @@ class CardPage extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
         side: BorderSide(
+          width: 2,
           color: Theme.of(context).dividerColor.withOpacity(
                 Theme.of(context).brightness == Brightness.dark ? 0.4 : 0.1,
               ),
-          width: 2,
         ),
       ),
       child: Padding(
         padding: EdgeInsets.all(16),
-        child: body,
+        child: child,
       ),
     );
   }

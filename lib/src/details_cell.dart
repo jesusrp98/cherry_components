@@ -12,7 +12,7 @@ class DetailsCell extends StatelessWidget {
     this.leading,
     @required this.title,
     this.subtitle,
-    this.body,
+    @required this.body,
     this.onTap,
   });
 
@@ -79,7 +79,7 @@ class DetailsCell extends StatelessWidget {
                 ],
               ),
             ),
-            Icon(Icons.chevron_right),
+            if (onTap != null) Icon(Icons.chevron_right),
           ]),
           if (body != null) TextExpand.small(body),
         ],
