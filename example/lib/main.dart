@@ -1,5 +1,6 @@
-import 'package:cherry_components/cherry_components.dart';
 import 'package:flutter/material.dart';
+
+import './views/index.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'search_page',
+      title: 'Cherry Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -17,31 +18,49 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List<String> _tabTitles = [
+    'CacheImage',
+    'CardPage',
+    'DetailsCell',
+    'DialogRound',
+    'ExpandWidget',
+    'HeaderText',
+    'ItemCell',
+    'ListCell',
+    'RadioCell',
+    'RowItem',
+  ];
+
+  final List<Widget> _views = [
+    CacheImageView(),
+    CardCellView(),
+    DetailsCellView(),
+    DialogRoundView(),
+    ExpandWidgetView(),
+    HeaderTextView(),
+    ItemCellView(),
+    ListCellView(),
+    RadioCellView(),
+    RowItemView(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Cherry Components'),
-      ),
-      body: Column(
-        children: [
-          FlatButton(
-            child: Text('BottomRoundDialog'),
-            onPressed: () => showBottomRoundDialog(
-              context: context,
-              title: 'Sample Title',
-              children: [Text('Hello!')],
-            ),
+    return DefaultTabController(
+      length: _tabTitles.length,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            isScrollable: true,
+            tabs: [
+              for (final title in _tabTitles) Tab(text: title),
+            ],
           ),
-          FlatButton(
-            child: Text('RoundDialog'),
-            onPressed: () => showRoundDialog(
-              context: context,
-              title: 'Sample Title',
-              children: [Text('Hello!')],
-            ),
-          ),
-        ],
+          title: Text('Cherry Components'),
+        ),
+        body: TabBarView(
+          children: _views,
+        ),
       ),
     );
   }
