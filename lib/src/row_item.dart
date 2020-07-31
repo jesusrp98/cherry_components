@@ -20,7 +20,7 @@ class RowText extends StatelessWidget {
   }
 }
 
-/// Wrapper of the [RowItem.icon] widget.
+/// Wrapper of the [RowItem.boolean] widget.
 class RowBoolean extends StatelessWidget {
   final String title;
   final bool status;
@@ -39,7 +39,7 @@ class RowBoolean extends StatelessWidget {
   }
 }
 
-/// Wrapper of the [RowItem.clickable] widget.
+/// Wrapper of the [RowItem.tap] widget.
 class RowTap extends StatelessWidget {
   final String title, description, fallback;
   final Widget screen;
