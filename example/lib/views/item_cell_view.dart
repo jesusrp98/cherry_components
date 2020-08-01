@@ -5,10 +5,26 @@ import 'package:row_collection/row_collection.dart';
 class ItemCellView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RowLayout.cards(
-      children: [
-
-      ],
+    return SingleChildScrollView(
+      child: RowLayout.body(
+        children: [
+          ItemCell(
+            icon: Icons.location_city,
+            text: 'Lorem ipsum',
+          ),
+          Builder(
+            builder: (context) => ItemCell(
+              icon: Icons.location_city,
+              text: 'Lorem ipsum',
+              onTap: () => Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Lorem ipsum'),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

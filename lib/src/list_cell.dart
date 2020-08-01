@@ -8,7 +8,6 @@ class ListCell extends StatelessWidget {
   final String title, subtitle;
   final VoidCallback onTap;
   final EdgeInsets contentPadding;
-  final bool dense;
 
   const ListCell({
     this.leading,
@@ -17,7 +16,6 @@ class ListCell extends StatelessWidget {
     this.subtitle,
     this.onTap,
     this.contentPadding,
-    this.dense,
   });
 
   // TODO
@@ -28,7 +26,6 @@ class ListCell extends StatelessWidget {
     @required String title,
     String subtitle,
     VoidCallback onTap,
-    bool dense,
   }) {
     return ListCell(
       leading: SvgPicture.asset(
@@ -44,7 +41,6 @@ class ListCell extends StatelessWidget {
       title: title,
       subtitle: subtitle,
       onTap: onTap,
-      dense: dense,
     );
   }
 
@@ -55,7 +51,6 @@ class ListCell extends StatelessWidget {
     String subtitle,
     VoidCallback onTap,
     EdgeInsets contentPadding,
-    bool dense,
   }) {
     return ListCell(
       leading: Icon(icon, size: 40),
@@ -64,14 +59,12 @@ class ListCell extends StatelessWidget {
       subtitle: subtitle,
       onTap: onTap,
       contentPadding: contentPadding,
-      dense: dense,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      dense: dense,
       leading: leading,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,7 +88,9 @@ class ListCell extends StatelessWidget {
                     color: Theme.of(context).textTheme.caption.color,
                   ),
             ),
-      trailing: trailing,
+      trailing: onTap != null && trailing == null
+          ? Icon(Icons.chevron_right)
+          : trailing,
       contentPadding: contentPadding,
       onTap: onTap,
     );
@@ -103,15 +98,15 @@ class ListCell extends StatelessWidget {
 }
 
 /// TODO
-class CellTrailingText extends StatelessWidget {
-  final String number;
+class TrailingText extends StatelessWidget {
+  final String data;
 
-  const CellTrailingText(this.number);
+  const TrailingText(this.data);
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      number,
+      data,
       style: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),

@@ -15,7 +15,7 @@ class RadioCell<T> extends StatelessWidget {
     this.onChanged,
   });
 
-  bool get isChecked => groupValue == value;
+  bool get _isChecked => groupValue == value;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,13 @@ class RadioCell<T> extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         color:
-            isChecked ? Theme.of(context).accentColor.withOpacity(0.24) : null,
+            _isChecked ? Theme.of(context).accentColor.withOpacity(0.24) : null,
         child: Row(
           children: <Widget>[
             Icon(
-              isChecked ? Icons.check_circle : Icons.panorama_fish_eye,
+              _isChecked ? Icons.check_circle : Icons.panorama_fish_eye,
               size: _kRadioSize,
-              color: isChecked
+              color: _isChecked
                   ? Theme.of(context).accentColor
                   : Theme.of(context).textTheme.caption.color,
             ),

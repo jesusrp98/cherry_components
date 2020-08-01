@@ -5,10 +5,43 @@ import 'package:row_collection/row_collection.dart';
 class RowItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RowLayout.cards(
-      children: [
-
-      ],
+    return SingleChildScrollView(
+      child: RowLayout.body(
+        children: [
+          RowText('Lorem ipsum', 'Lorem ipsum'),
+          Separator.divider(),
+          RowBoolean('Lorem ipsum', true),
+          RowBoolean('Lorem ipsum', false),
+          RowBoolean('Lorem ipsum', null),
+          Separator.divider(),
+          RowTap(
+            'Lorem ipsum',
+            null,
+            fallback: 'Unkown',
+            screenBuilder: (_) => Scaffold(
+              appBar: AppBar(
+                title: Text('Lorem ipsum'),
+              ),
+              body: Center(
+                child: Text('Lorem ipsum'),
+              ),
+            ),
+          ),
+          RowTap(
+            'Lorem ipsum',
+            'Lorem ipsum',
+            fallback: 'Unkown',
+            screenBuilder: (_) => Scaffold(
+              appBar: AppBar(
+                title: Text('Lorem ipsum'),
+              ),
+              body: Center(
+                child: Text('Lorem ipsum'),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

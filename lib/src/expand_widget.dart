@@ -1,21 +1,7 @@
 import 'package:expand_widget/expand_widget.dart';
 import 'package:flutter/material.dart';
 
-/// TODO
-class RowExpand extends StatelessWidget {
-  final Widget child;
-
-  const RowExpand(this.child);
-
-  @override
-  Widget build(BuildContext context) {
-    return ExpandChild(
-      child: child,
-    );
-  }
-}
-
-/// TODO
+/// Wrapper of the [ExpandText] widget.
 class TextExpand extends StatelessWidget {
   final String text;
   final int lines;
@@ -32,6 +18,7 @@ class TextExpand extends StatelessWidget {
       text,
       maxLines: lines,
       textAlign: TextAlign.justify,
+      expandOnGesture: false,
       style: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),
@@ -39,13 +26,13 @@ class TextExpand extends StatelessWidget {
   }
 }
 
-/// TODO
+/// Wrapper of the [ExpandChild] widget.
 class ExpandList extends StatelessWidget {
   final Widget child;
   final String text;
 
   const ExpandList({
-    this.child,
+    @required this.child,
     this.text,
   });
 

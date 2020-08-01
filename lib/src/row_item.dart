@@ -42,13 +42,13 @@ class RowBoolean extends StatelessWidget {
 /// Wrapper of the [RowItem.tap] widget.
 class RowTap extends StatelessWidget {
   final String title, description, fallback;
-  final Widget screen;
+  final WidgetBuilder screenBuilder;
 
   const RowTap(
     this.title,
     this.description, {
     @required this.fallback,
-    this.screen,
+    @required this.screenBuilder,
   });
 
   @override
@@ -68,7 +68,7 @@ class RowTap extends StatelessWidget {
           : () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => screen,
+                  builder: screenBuilder,
                   fullscreenDialog: true,
                 ),
               ),

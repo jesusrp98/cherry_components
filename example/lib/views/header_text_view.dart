@@ -5,10 +5,17 @@ import 'package:row_collection/row_collection.dart';
 class HeaderTextView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RowLayout.cards(
-      children: [
-
-      ],
+    return SingleChildScrollView(
+      child: RowLayout(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HeaderText(
+            'Lorem ipsum',
+            head: true,
+          ),
+          HeaderText('Lorem ipsum'),
+        ],
+      ),
     );
   }
 }

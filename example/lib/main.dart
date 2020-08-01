@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final List<String> _tabTitles = [
     'CacheImage',
-    'CardPage',
+    'CardCell',
     'DetailsCell',
     'DialogRound',
     'ExpandWidget',
