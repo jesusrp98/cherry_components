@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:row_collection/row_collection.dart';
 
 const _kRadioSize = 22.0;
 
-///
+/// Widget similar to [RadioListTile] with custon theming.
 class RadioCell<T> extends StatelessWidget {
   final String title;
   final T groupValue, value;
-  final Function(T) onChanged;
+  final ValueChanged<T> onChanged;
 
   const RadioCell({
-    this.title,
-    this.groupValue,
-    this.value,
-    this.onChanged,
-  });
+    Key key,
+    @required this.title,
+    @required this.groupValue,
+    @required this.value,
+    @required this.onChanged,
+  }) : super(key: key);
 
   bool get _isChecked => groupValue == value;
 
@@ -34,7 +36,7 @@ class RadioCell<T> extends StatelessWidget {
                   ? Theme.of(context).accentColor
                   : Theme.of(context).textTheme.caption.color,
             ),
-            SizedBox(width: 16),
+            Separator.spacer(space: 16),
             Text(
               title,
               style: Theme.of(context).textTheme.subtitle1,

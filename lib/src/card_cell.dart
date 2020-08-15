@@ -3,21 +3,27 @@ import 'package:row_collection/row_collection.dart';
 
 import 'index.dart';
 
-/// TODO
+/// This widget applies a custom theme to a [Card] widget.
+/// No shadows and a little rounded border :)
 class CardCell extends StatelessWidget {
   final Widget child;
 
-  const CardCell({@required this.child});
+  const CardCell({
+    Key key,
+    @required this.child,
+  }) : super(key: key);
 
-  /// TODO
+  /// Custom [CardCell] design, specifically for page headings.
   factory CardCell.header(
     BuildContext context, {
+    Key key,
     Widget leading,
     @required String title,
-    Widget subtitle,
+    List<Widget> subtitle,
     @required String details,
   }) {
     return CardCell(
+      key: key,
       child: RowLayout(children: <Widget>[
         Row(children: <Widget>[
           if (leading != null) ...[
@@ -38,7 +44,11 @@ class CardCell extends StatelessWidget {
                         fontSize: 18,
                       ),
                 ),
-                if (subtitle != null) subtitle,
+                if (subtitle != null)
+                  RowLayout(
+                    space: 4,
+                    children: subtitle,
+                  ),
               ],
             ),
           ),
@@ -49,29 +59,29 @@ class CardCell extends StatelessWidget {
     );
   }
 
-  /// TODO
+  /// Custom [CardCell] design, specifically for page body.
   factory CardCell.body(
     BuildContext context, {
+    Key key,
     @required String title,
     @required Widget child,
   }) {
     return CardCell(
-      child: RowLayout(
-        children: <Widget>[
-          if (title != null)
-            Text(
-              title.toUpperCase(),
-              maxLines: 1,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.headline6.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-            ),
-          child
-        ],
-      ),
+      key: key,
+      child: RowLayout(children: <Widget>[
+        if (title != null)
+          Text(
+            title.toUpperCase(),
+            maxLines: 1,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(context).textTheme.headline6.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+          ),
+        child
+      ]),
     );
   }
 

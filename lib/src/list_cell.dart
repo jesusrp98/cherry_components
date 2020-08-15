@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:row_collection/row_collection.dart';
 
-/// TODO
+/// Widget similar to [ListTile] with custom theme
+/// and constructors.
 class ListCell extends StatelessWidget {
   final Widget leading, trailing;
   final String title, subtitle;
@@ -10,16 +11,19 @@ class ListCell extends StatelessWidget {
   final EdgeInsets contentPadding;
 
   const ListCell({
+    Key key,
     this.leading,
     this.trailing,
     @required this.title,
     this.subtitle,
     this.onTap,
     this.contentPadding,
-  });
+  }) : super(key: key);
 
-  // TODO
+  /// Builds a [ListCell] using a [SvgPicture] object as the leading
+  /// widget.
   factory ListCell.svg({
+    Key key,
     @required BuildContext context,
     @required String image,
     Widget trailing,
@@ -28,6 +32,7 @@ class ListCell extends StatelessWidget {
     VoidCallback onTap,
   }) {
     return ListCell(
+      key: key,
       leading: SvgPicture.asset(
         image,
         colorBlendMode: BlendMode.srcATop,
@@ -44,7 +49,10 @@ class ListCell extends StatelessWidget {
     );
   }
 
+  /// Builds a [ListCell] using a [IconData] object as the leading
+  /// widget.
   factory ListCell.icon({
+    Key key,
     @required IconData icon,
     Widget trailing,
     @required String title,
@@ -53,6 +61,7 @@ class ListCell extends StatelessWidget {
     EdgeInsets contentPadding,
   }) {
     return ListCell(
+      key: key,
       leading: Icon(icon, size: 40),
       trailing: trailing,
       title: title,
@@ -97,11 +106,12 @@ class ListCell extends StatelessWidget {
   }
 }
 
-/// TODO
+/// Text widget with custom theme, generally used as a
+/// trailing widget inside [ListCell].
 class TrailingText extends StatelessWidget {
   final String data;
 
-  const TrailingText(this.data);
+  const TrailingText(this.data, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

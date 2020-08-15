@@ -6,7 +6,11 @@ class HeaderText extends StatelessWidget {
   final String text;
   final bool head;
 
-  const HeaderText(this.text, {this.head = false});
+  const HeaderText(
+    this.text, {
+    Key key,
+    this.head = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

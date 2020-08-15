@@ -6,7 +6,11 @@ class TextExpand extends StatelessWidget {
   final String text;
   final int lines;
 
-  const TextExpand(this.text, {this.lines = 8});
+  const TextExpand(
+    this.text, {
+    Key key,
+    this.lines = 8,
+  }) : super(key: key);
 
   factory TextExpand.small(String text) {
     return TextExpand(text, lines: 6);
@@ -32,9 +36,10 @@ class ExpandList extends StatelessWidget {
   final String text;
 
   const ExpandList({
+    Key key,
     @required this.child,
     this.text,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
