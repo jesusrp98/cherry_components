@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
 
   row_collection: ^0.2.4
-  expand_widget: ^1.0.0
+  expand_widget: ^1.0.0+1
   cached_network_image: ^2.3.0-rc
   flutter_svg: ^0.18.0
   row_item: ^1.2.0+1
