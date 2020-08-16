@@ -1,5 +1,5 @@
 export 'cache_image.dart';
-export 'card_page.dart';
+export 'card_cell.dart';
 export 'details_cell.dart';
 export 'dialog_round.dart';
 export 'expand_widget.dart';

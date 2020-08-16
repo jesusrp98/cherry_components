@@ -6,22 +6,26 @@ class HeaderText extends StatelessWidget {
   final String text;
   final bool head;
 
-  const HeaderText(this.text, {this.head = false});
+  const HeaderText(
+    this.text, {
+    Key key,
+    this.head = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       top: false,
-      minimum: EdgeInsets.only(left: 16, top: head ? 16 : 0),
-      child: Padding(
-        padding: EdgeInsets.zero,
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: Theme.of(context).accentColor,
-                fontWeight: FontWeight.bold,
-              ),
-        ),
+      minimum: EdgeInsets.only(
+        top: head ? 16 : 0,
+        left: 16,
+      ),
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.bodyText2.copyWith(
+              color: Theme.of(context).accentColor,
+              fontWeight: FontWeight.bold,
+            ),
       ),
     );
   }

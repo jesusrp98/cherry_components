@@ -5,7 +5,11 @@ import 'package:row_item/row_item.dart';
 class RowText extends StatelessWidget {
   final String title, description;
 
-  const RowText(this.title, this.description);
+  const RowText(
+    this.title,
+    this.description, {
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,11 @@ class RowBoolean extends StatelessWidget {
   final String title;
   final bool status;
 
-  const RowBoolean(this.title, this.status);
+  const RowBoolean(
+    this.title,
+    this.status, {
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +50,15 @@ class RowBoolean extends StatelessWidget {
 /// Wrapper of the [RowItem.tap] widget.
 class RowTap extends StatelessWidget {
   final String title, description, fallback;
-  final Widget screen;
+  final WidgetBuilder screenBuilder;
 
   const RowTap(
     this.title,
     this.description, {
+    Key key,
     @required this.fallback,
-    this.screen,
-  });
+    @required this.screenBuilder,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +77,7 @@ class RowTap extends StatelessWidget {
           : () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => screen,
+                  builder: screenBuilder,
                   fullscreenDialog: true,
                 ),
               ),

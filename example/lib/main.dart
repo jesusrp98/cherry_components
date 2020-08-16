@@ -1,5 +1,7 @@
-import 'package:cherry_components/cherry_components.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import './views/index.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,41 +9,93 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'search_page',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'Cherry Example',
       home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  TextTheme _textTheme = GoogleFonts.robotoTextTheme();
+
+  final List<String> _tabTitles = [
+    'CacheImage',
+    'CardCell',
+    'DetailsCell',
+    'DialogRound',
+    'ExpandWidget',
+    'HeaderText',
+    'ItemCell',
+    'ListCell',
+    'RadioCell',
+    'RowItem',
+  ];
+
+  final List<Widget> _views = [
+    CacheImageView(),
+    CardCellView(),
+    DetailsCellView(),
+    DialogRoundView(),
+    ExpandWidgetView(),
+    HeaderTextView(),
+    ItemCellView(),
+    ListCellView(),
+    RadioCellView(),
+    RowItemView(),
+  ];
+
+  final List<String> _textThemeStrings = [
+    'roboto',
+    'rubik',
+  ];
+
+  final List<TextTheme> _textThemeData = [
+    GoogleFonts.robotoTextTheme(),
+    GoogleFonts.rubikTextTheme()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Cherry Components'),
-      ),
-      body: Column(
-        children: [
-          FlatButton(
-            child: Text('BottomRoundDialog'),
-            onPressed: () => showBottomRoundDialog(
-              context: context,
-              title: 'Sample Title',
-              children: [Text('Hello!')],
+    return Theme(
+      data: Theme.of(context).copyWith(textTheme: _textTheme),
+      child: DefaultTabController(
+        length: _tabTitles.length,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              isScrollable: true,
+              tabs: [
+                for (final title in _tabTitles) Tab(text: title),
+              ],
             ),
+            title: Text('Cherry Components'),
+            actions: [
+              PopupMenuButton<String>(
+                onSelected: (value) => setState(
+                  () => _textTheme =
+                      _textThemeData[_textThemeStrings.indexOf(value)],
+                ),
+                itemBuilder: (_) => [
+                  for (final entry in _textThemeStrings)
+                    CheckedPopupMenuItem<String>(
+                      checked: _textTheme ==
+                          _textThemeData[_textThemeStrings.indexOf(entry)],
+                      value: entry,
+                      child: Text(entry),
+                    ),
+                ],
+              ),
+            ],
           ),
-          FlatButton(
-            child: Text('RoundDialog'),
-            onPressed: () => showRoundDialog(
-              context: context,
-              title: 'Sample Title',
-              children: [Text('Hello!')],
-            ),
+          body: TabBarView(
+            children: _views,
           ),
-        ],
+        ),
       ),
     );
   }

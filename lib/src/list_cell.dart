@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:row_collection/row_collection.dart';
 
-/// TODO
+/// Widget similar to [ListTile] with custom theme
+/// and constructors.
 class ListCell extends StatelessWidget {
   final Widget leading, trailing;
   final String title, subtitle;
@@ -11,26 +12,30 @@ class ListCell extends StatelessWidget {
   final bool dense;
 
   const ListCell({
+    Key key,
     this.leading,
     this.trailing,
     @required this.title,
     this.subtitle,
     this.onTap,
     this.contentPadding,
-    this.dense,
-  });
+    this.dense = false,
+  }) : super(key: key);
 
-  // TODO
+  /// Builds a [ListCell] using a [SvgPicture] object as the leading
+  /// widget.
   factory ListCell.svg({
+    Key key,
     @required BuildContext context,
     @required String image,
     Widget trailing,
     @required String title,
     String subtitle,
     VoidCallback onTap,
-    bool dense,
+    bool dense = false,
   }) {
     return ListCell(
+      key: key,
       leading: SvgPicture.asset(
         image,
         colorBlendMode: BlendMode.srcATop,
@@ -48,16 +53,20 @@ class ListCell extends StatelessWidget {
     );
   }
 
+  /// Builds a [ListCell] using a [IconData] object as the leading
+  /// widget.
   factory ListCell.icon({
+    Key key,
     @required IconData icon,
     Widget trailing,
     @required String title,
     String subtitle,
     VoidCallback onTap,
     EdgeInsets contentPadding,
-    bool dense,
+    bool dense = false,
   }) {
     return ListCell(
+      key: key,
       leading: Icon(icon, size: 40),
       trailing: trailing,
       title: title,
@@ -71,7 +80,6 @@ class ListCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      dense: dense,
       leading: leading,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,23 +103,27 @@ class ListCell extends StatelessWidget {
                     color: Theme.of(context).textTheme.caption.color,
                   ),
             ),
-      trailing: trailing,
+      trailing: onTap != null && trailing == null
+          ? Icon(Icons.chevron_right)
+          : trailing,
       contentPadding: contentPadding,
       onTap: onTap,
+      dense: dense,
     );
   }
 }
 
-/// TODO
-class CellTrailingText extends StatelessWidget {
-  final String number;
+/// Text widget with custom theme, generally used as a
+/// trailing widget inside [ListCell].
+class TrailingText extends StatelessWidget {
+  final String data;
 
-  const CellTrailingText(this.number);
+  const TrailingText(this.data, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      number,
+      data,
       style: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,
           ),

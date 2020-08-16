@@ -10,8 +10,8 @@ class ItemCell extends StatelessWidget {
 
   const ItemCell({
     Key key,
-    this.icon,
-    this.text,
+    @required this.icon,
+    @required this.text,
     this.onTap,
   }) : super(key: key);
 

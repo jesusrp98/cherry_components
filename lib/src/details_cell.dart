@@ -3,18 +3,20 @@ import 'package:row_collection/row_collection.dart';
 
 import 'expand_widget.dart';
 
-/// TODO
+/// Widget similar to [ListCell] that represents more information
+/// about a specific theme. It also features expandable description text.
 class DetailsCell extends StatelessWidget {
   final String leading, title, subtitle, body;
   final VoidCallback onTap;
 
   const DetailsCell({
+    Key key,
     this.leading,
     @required this.title,
     this.subtitle,
-    this.body,
+    @required this.body,
     this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +81,11 @@ class DetailsCell extends StatelessWidget {
                 ],
               ),
             ),
-            Icon(Icons.chevron_right),
+            if (onTap != null)
+              Icon(
+                Icons.chevron_right,
+                color: Theme.of(context).textTheme.caption.color,
+              ),
           ]),
           if (body != null) TextExpand.small(body),
         ],
