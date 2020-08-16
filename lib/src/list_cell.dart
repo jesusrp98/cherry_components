@@ -9,6 +9,7 @@ class ListCell extends StatelessWidget {
   final String title, subtitle;
   final VoidCallback onTap;
   final EdgeInsets contentPadding;
+  final bool dense;
 
   const ListCell({
     Key key,
@@ -18,6 +19,7 @@ class ListCell extends StatelessWidget {
     this.subtitle,
     this.onTap,
     this.contentPadding,
+    this.dense = false,
   }) : super(key: key);
 
   /// Builds a [ListCell] using a [SvgPicture] object as the leading
@@ -30,6 +32,7 @@ class ListCell extends StatelessWidget {
     @required String title,
     String subtitle,
     VoidCallback onTap,
+    bool dense = false,
   }) {
     return ListCell(
       key: key,
@@ -46,6 +49,7 @@ class ListCell extends StatelessWidget {
       title: title,
       subtitle: subtitle,
       onTap: onTap,
+      dense: dense,
     );
   }
 
@@ -59,6 +63,7 @@ class ListCell extends StatelessWidget {
     String subtitle,
     VoidCallback onTap,
     EdgeInsets contentPadding,
+    bool dense = false,
   }) {
     return ListCell(
       key: key,
@@ -68,6 +73,7 @@ class ListCell extends StatelessWidget {
       subtitle: subtitle,
       onTap: onTap,
       contentPadding: contentPadding,
+      dense: dense,
     );
   }
 
@@ -102,6 +108,7 @@ class ListCell extends StatelessWidget {
           : trailing,
       contentPadding: contentPadding,
       onTap: onTap,
+      dense: dense,
     );
   }
 }
