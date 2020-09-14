@@ -18,12 +18,17 @@ class RowItemView extends StatelessWidget {
             'Lorem ipsum',
             null,
             fallback: 'Unkown',
-            screenBuilder: (_) => Scaffold(
-              appBar: AppBar(
-                title: Text('Lorem ipsum'),
-              ),
-              body: Center(
-                child: Text('Lorem ipsum'),
+            onTap: (_) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => Scaffold(
+                  appBar: AppBar(
+                    title: Text('Lorem ipsum'),
+                  ),
+                  body: Center(
+                    child: Text('Lorem ipsum'),
+                  ),
+                ),
               ),
             ),
           ),
@@ -31,12 +36,17 @@ class RowItemView extends StatelessWidget {
             'Lorem ipsum',
             'Lorem ipsum',
             fallback: 'Unkown',
-            screenBuilder: (_) => Scaffold(
-              appBar: AppBar(
-                title: Text('Lorem ipsum'),
-              ),
-              body: Center(
-                child: Text('Lorem ipsum'),
+            onTap: (_) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => Scaffold(
+                  appBar: AppBar(
+                    title: Text('Lorem ipsum'),
+                  ),
+                  body: Center(
+                    child: Text('Lorem ipsum'),
+                  ),
+                ),
               ),
             ),
           ),
