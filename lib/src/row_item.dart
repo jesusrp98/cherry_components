@@ -50,14 +50,14 @@ class RowBoolean extends StatelessWidget {
 /// Wrapper of the [RowItem.tap] widget.
 class RowTap extends StatelessWidget {
   final String title, description, fallback;
-  final WidgetBuilder screenBuilder;
+  final Function onTap;
 
   const RowTap(
     this.title,
     this.description, {
     Key key,
     @required this.fallback,
-    @required this.screenBuilder,
+    @required this.onTap,
   }) : super(key: key);
 
   @override
@@ -72,15 +72,7 @@ class RowTap extends StatelessWidget {
                 ? TextDecoration.underline
                 : TextDecoration.none,
           ),
-      onTap: description == null
-          ? null
-          : () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: screenBuilder,
-                  fullscreenDialog: true,
-                ),
-              ),
+      onTap: description == null ? null : onTap,
     );
   }
 }
