@@ -9,10 +9,23 @@ class DetailsCellView extends StatelessWidget {
       child: RowLayout(
         children: [
           DetailsCell(
+            leading: '0',
             title: 'Lorem ipsum',
+            subtitle: 'Lorem ipsum dolor sit amet',
+          ),
+          Separator.divider(indent: 16),
+          DetailsCell(
+            title: 'Lorem ipsum',
+            subtitle: 'Lorem ipsum dolor sit amet',
+          ),
+          Separator.divider(indent: 16),
+          DetailsCell(
+            title: 'Lorem ipsum',
+            subtitle: 'Lorem ipsum dolor sit amet',
             body:
                 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
           ),
+          Separator.divider(indent: 16),
           Builder(
             builder: (context) => DetailsCell(
               leading: '0',

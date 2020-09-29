@@ -17,8 +17,8 @@ class RowItemView extends StatelessWidget {
           RowTap(
             'Lorem ipsum',
             null,
-            fallback: 'Unkown',
-            onTap: (_) => Navigator.push(
+            descriptionFallback: 'Unknown',
+            onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (_) => Scaffold(
@@ -35,8 +35,8 @@ class RowItemView extends StatelessWidget {
           RowTap(
             'Lorem ipsum',
             'Lorem ipsum',
-            fallback: 'Unkown',
-            onTap: (_) => Navigator.push(
+            descriptionFallback: 'Unknown',
+            onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (_) => Scaffold(

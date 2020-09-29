@@ -15,7 +15,11 @@ class RadioCell<T> extends StatelessWidget {
     @required this.groupValue,
     @required this.value,
     @required this.onChanged,
-  }) : super(key: key);
+  })  : assert(title != null),
+        assert(groupValue != null),
+        assert(value != null),
+        assert(onChanged != null),
+        super(key: key);
 
   bool get _isChecked => groupValue == value;
 

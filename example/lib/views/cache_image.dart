@@ -6,14 +6,24 @@ class CacheImageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: RowLayout.body(
+      child: RowLayout.cards(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CacheImage(
-            'https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg',
+          CardCell.body(
+            context,
+            title: 'Correct image URL',
+            child: CacheImage(
+              'https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg',
+            ),
           ),
-          Separator.divider(),
-          CacheImage(
-            'http://google.es',
+          CardCell.body(
+            context,
+            title: 'Wrong image URL',
+            child: Center(
+              child: CacheImage(
+                'http://google.es',
+              ),
+            ),
           ),
         ],
       ),

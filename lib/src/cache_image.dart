@@ -19,7 +19,8 @@ class CacheImage extends StatelessWidget {
     this.url, {
     Key key,
     this.fit = BoxFit.cover,
-  }) : super(key: key);
+  })  : assert(url != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

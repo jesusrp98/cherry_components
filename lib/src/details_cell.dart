@@ -14,9 +14,10 @@ class DetailsCell extends StatelessWidget {
     this.leading,
     @required this.title,
     this.subtitle,
-    @required this.body,
+    this.body,
     this.onTap,
-  }) : super(key: key);
+  })  : assert(title != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

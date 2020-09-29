@@ -20,7 +20,8 @@ class ListCell extends StatelessWidget {
     this.onTap,
     this.contentPadding,
     this.dense = false,
-  }) : super(key: key);
+  })  : assert(title != null),
+        super(key: key);
 
   /// Builds a [ListCell] using a [SvgPicture] object as the leading
   /// widget.

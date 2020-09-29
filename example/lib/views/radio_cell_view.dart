@@ -15,19 +15,19 @@ class _RadioCellViewState extends State<RadioCellView> {
       child: Column(
         children: [
           RadioCell<int>(
-            title: 'Lorem ipsum',
+            title: 'Blue',
             groupValue: index,
             value: 0,
             onChanged: (value) => setState(() => index = value),
           ),
           RadioCell<int>(
-            title: 'Lorem ipsum',
+            title: 'White',
             groupValue: index,
             value: 1,
             onChanged: (value) => setState(() => index = value),
           ),
           RadioCell<int>(
-            title: 'Lorem ipsum',
+            title: 'Whiter!',
             groupValue: index,
             value: 2,
             onChanged: (value) => setState(() => index = value),

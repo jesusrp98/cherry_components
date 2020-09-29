@@ -6,23 +6,35 @@ class ItemCellView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: RowLayout.body(
+      child: RowLayout.cards(
         children: [
-          ItemCell(
-            icon: Icons.location_city,
-            text: 'Lorem ipsum',
+          CardCell.body(
+            context,
+            title: 'ItemCell',
+            child: Center(
+              child: ItemCell(
+                icon: Icons.location_city,
+                text: 'Lorem ipsum',
+              ),
+            ),
           ),
-          Builder(
-            builder: (context) => ItemCell(
-              icon: Icons.location_city,
-              text: 'Lorem ipsum',
-              onTap: () => Scaffold.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('Lorem ipsum'),
+          CardCell.body(
+            context,
+            title: 'ItemCell with click',
+            child: Builder(
+              builder: (context) => Center(
+                child: ItemCell(
+                  icon: Icons.location_city,
+                  text: 'Lorem ipsum',
+                  onTap: () => Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Lorem ipsum'),
+                    ),
+                  ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

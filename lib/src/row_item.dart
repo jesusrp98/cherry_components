@@ -49,22 +49,23 @@ class RowBoolean extends StatelessWidget {
 
 /// Wrapper of the [RowItem.tap] widget.
 class RowTap extends StatelessWidget {
-  final String title, description, fallback;
+  final String title, description, descriptionFallback;
   final Function onTap;
 
   const RowTap(
     this.title,
     this.description, {
     Key key,
-    @required this.fallback,
+    this.descriptionFallback = 'Unknown',
     @required this.onTap,
-  }) : super(key: key);
+  })  : assert(descriptionFallback != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RowItem.tap(
       title,
-      description ?? fallback,
+      description ?? descriptionFallback,
       titleStyle: Theme.of(context).textTheme.bodyText2,
       descriptionStyle: Theme.of(context).textTheme.bodyText2.copyWith(
             color: Theme.of(context).textTheme.caption.color,

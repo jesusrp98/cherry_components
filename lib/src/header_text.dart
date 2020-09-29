@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 /// This widget is used in the 'Settings' & 'About' screens.
 /// It categorizes items based on a theme.
 class HeaderText extends StatelessWidget {
-  final String text;
+  final String data;
   final bool head;
 
   const HeaderText(
-    this.text, {
+    this.data, {
     Key key,
     this.head = false,
-  }) : super(key: key);
+  })  : assert(data != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class HeaderText extends StatelessWidget {
         left: 16,
       ),
       child: Text(
-        text,
+        data,
         style: Theme.of(context).textTheme.bodyText2.copyWith(
               color: Theme.of(context).accentColor,
               fontWeight: FontWeight.bold,

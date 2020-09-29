@@ -11,7 +11,8 @@ class CardCell extends StatelessWidget {
   const CardCell({
     Key key,
     @required this.child,
-  }) : super(key: key);
+  })  : assert(child != null),
+        super(key: key);
 
   /// Custom [CardCell] design, specifically for page headings.
   factory CardCell.header(

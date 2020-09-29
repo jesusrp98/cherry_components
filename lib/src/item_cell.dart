@@ -13,7 +13,9 @@ class ItemCell extends StatelessWidget {
     @required this.icon,
     @required this.text,
     this.onTap,
-  }) : super(key: key);
+  })  : assert(icon != null),
+        assert(text != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {

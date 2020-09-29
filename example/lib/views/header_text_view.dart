@@ -10,10 +10,10 @@ class HeaderTextView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           HeaderText(
-            'Lorem ipsum',
+            'I\'m the head of the page!',
             head: true,
           ),
-          HeaderText('Lorem ipsum'),
+          HeaderText('I\'m a header text!'),
         ],
       ),
     );
