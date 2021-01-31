@@ -47,6 +47,7 @@ class CardCell extends StatelessWidget {
                 if (subtitle != null)
                   RowLayout(
                     space: 4,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: subtitle,
                   ),
               ],
