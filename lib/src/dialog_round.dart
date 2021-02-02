@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:row_collection/row_collection.dart';
 
-/// TODO
+/// Constant which describes the roundness of the mentioned dialog
 const kDialogCornerRadius = 12.0;
 
-/// TODO
+/// Function that builds a centered-rounded dialog. It contains a title, with a
+/// predefined text style, and a varietude of children.
 Future<T> showRoundDialog<T>({
   @required BuildContext context,
   @required String title,
@@ -27,7 +28,8 @@ Future<T> showRoundDialog<T>({
   );
 }
 
-/// TODO
+/// Function that builds a bottom-rounded dialog. It contains a title, with a
+/// predefined text style, and a varietude of children.
 Future<T> showBottomRoundDialog<T>({
   @required BuildContext context,
   @required String title,
@@ -49,7 +51,7 @@ Future<T> showBottomRoundDialog<T>({
   );
 }
 
-/// TODO
+/// Private class that builds the internal structure of a rounded dialog.
 class _RoundDialog extends StatelessWidget {
   final String title;
   final List<Widget> children;
