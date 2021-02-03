@@ -1,7 +1,6 @@
+import 'package:expand_widget/expand_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:row_collection/row_collection.dart';
-
-import 'index.dart';
 
 /// This widget applies a custom theme to a [Card] widget.
 /// No shadows and a little rounded border :)
@@ -55,7 +54,7 @@ class CardCell extends StatelessWidget {
           ),
         ]),
         Separator.divider(),
-        TextExpand(details)
+        ExpandText(details)
       ]),
     );
   }
