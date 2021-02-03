@@ -33,7 +33,6 @@ class _MyHomePageState extends State<MyHomePage> {
     'ItemCell',
     'ListCell',
     'RadioCell',
-    'RowItem',
   ];
 
   final List<Widget> _views = [
@@ -46,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
     ItemCellView(),
     ListCellView(),
     RadioCellView(),
-    RowItemView(),
   ];
 
   final List<String> _textThemeStrings = [

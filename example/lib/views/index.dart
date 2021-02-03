@@ -7,4 +7,3 @@ export 'header_text_view.dart';
 export 'item_cell_view.dart';
 export 'list_cell_view.dart';
 export 'radio_cell_view.dart';
-export 'row_item_view.dart';
