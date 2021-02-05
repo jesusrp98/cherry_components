@@ -1,7 +1,6 @@
+import 'package:expand_widget/expand_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:row_collection/row_collection.dart';
-
-import 'expand_widget.dart';
 
 /// Widget similar to [ListCell] that represents more information
 /// about a specific theme. It also features expandable description text.
@@ -87,7 +86,7 @@ class DetailsCell extends StatelessWidget {
                 color: Theme.of(context).textTheme.caption.color,
               ),
           ]),
-          if (body != null) TextExpand.small(body),
+          if (body != null) ExpandText(body),
         ],
       ),
     );

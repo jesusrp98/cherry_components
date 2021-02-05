@@ -28,12 +28,10 @@ class _MyHomePageState extends State<MyHomePage> {
     'CardCell',
     'DetailsCell',
     'DialogRound',
-    'ExpandWidget',
     'HeaderText',
     'ItemCell',
     'ListCell',
     'RadioCell',
-    'RowItem',
   ];
 
   final List<Widget> _views = [
@@ -41,12 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
     CardCellView(),
     DetailsCellView(),
     DialogRoundView(),
-    ExpandWidgetView(),
     HeaderTextView(),
     ItemCellView(),
     ListCellView(),
     RadioCellView(),
-    RowItemView(),
   ];
 
   final List<String> _textThemeStrings = [
