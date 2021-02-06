@@ -1,6 +1,6 @@
 name: cherry_components
 description: A new Flutter package project.
-version: 0.0.1+7
+version: 0.0.1+8
 homepage: https://github.com/jesusrp98/cherry_components
 
 environment:
@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  row_collection: ^0.2.4
-  expand_widget: ^1.2.0
+  row_collection: ^0.2.5
+  expand_widget: ^1.2.0+1
   cached_network_image: ^2.5.0
   flutter_svg: ^0.19.1
 
