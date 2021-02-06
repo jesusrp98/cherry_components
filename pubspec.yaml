@@ -13,7 +13,7 @@ dependencies:
   row_collection: ^0.2.4
   expand_widget: ^1.2.0
   cached_network_image: ^2.5.0
-  flutter_svg: ^0.19.2+1
+  flutter_svg: ^0.19.1
 
 dev_dependencies:
   flutter_test:
