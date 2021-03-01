@@ -1,6 +1,7 @@
 # Cherry Components 🍒
 
 [![Package](https://img.shields.io/pub/v/cherry_components.svg?style=for-the-badge)](https://pub.dartlang.org/packages/cherry_components)
+[![Build](https://img.shields.io/github/workflow/status/jesusrp98/cherry_components/Flutter%20Web?style=for-the-badge)](https://github.com/jesusrp98/cherry_components/actions)
 [![License](https://img.shields.io/github/license/jesusrp98/cherry_components.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Patreon](https://img.shields.io/badge/Support-Patreon-orange.svg?style=for-the-badge)](https://www.patreon.com/jesusrp98)
 
