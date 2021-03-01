@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:row_collection/row_collection.dart';
 
 /// Widget similar to [ListTile] with custom theme
@@ -21,37 +20,6 @@ class ListCell extends StatelessWidget {
     this.contentPadding,
     this.dense = false,
   }) : super(key: key);
-
-  /// Builds a [ListCell] using a [SvgPicture] object as the leading
-  /// widget.
-  factory ListCell.svg({
-    Key key,
-    @required BuildContext context,
-    @required String image,
-    Widget trailing,
-    @required String title,
-    String subtitle,
-    VoidCallback onTap,
-    bool dense = false,
-  }) {
-    return ListCell(
-      key: key,
-      leading: SvgPicture.asset(
-        image,
-        colorBlendMode: BlendMode.srcATop,
-        width: 40,
-        height: 40,
-        color: Theme.of(context).brightness == Brightness.light
-            ? Colors.black45
-            : null,
-      ),
-      trailing: trailing,
-      title: title,
-      subtitle: subtitle,
-      onTap: onTap,
-      dense: dense,
-    );
-  }
 
   /// Builds a [ListCell] using a [IconData] object as the leading
   /// widget.
