@@ -8,7 +8,7 @@ This package provides a collection of fresh UI compoents, used in a varietude of
 
 ## Components
 
-Here's a list of every component & tool included in this package. You can also visit the [example](https://jesusrp98.github.io/cherry_components/) page for you to take a look at some samples.
+Here's a list of every component & tool included in this package. You can also visit the [example](https://jesusrp98.github.io/cherry_components/) page for you to take a look at some samples. Also, this exapmple project is hosted on [this URL](https://jesusrp98.github.io/cherry_components/#/) for you to check out!
 
 ### CacheImage
 This tool uses the [CachedNetworkImage](https://pub.dev/packages/cached_network_image) package as a base to build a widget that displayes an image from an URL. As its name suggests, it features caching capabilities. It also has the ability to show an 'error' widget is the URL is broken or inaccesible.
