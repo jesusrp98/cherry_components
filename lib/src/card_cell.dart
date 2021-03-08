@@ -19,7 +19,7 @@ class CardCell extends StatelessWidget {
     Widget leading,
     @required String title,
     List<Widget> subtitle,
-    @required String details,
+    String details,
   }) {
     return CardCell(
       key: key,
@@ -53,8 +53,10 @@ class CardCell extends StatelessWidget {
             ),
           ),
         ]),
-        Separator.divider(),
-        ExpandText(details)
+        if (details != null) ...[
+          Separator.divider(),
+          ExpandText(details),
+        ]
       ]),
     );
   }
