@@ -32,6 +32,62 @@ class DialogRoundView extends StatelessWidget {
               ],
             ),
           ),
+          FlatButton(
+            child: Text('Center rounded dialog with actions'),
+            onPressed: () => showRoundDialog(
+              context: context,
+              title: 'Lorem ipsum',
+              children: [
+                Center(
+                  child: Text('Hello world'),
+                ),
+              ],
+              actions: [
+                DialogAction(
+                  title: 'Primary',
+                  onTap: () => print('Primary'),
+                ),
+                DialogAction(
+                  title: 'Secondary',
+                  onTap: () => print('Secondary'),
+                  type: DialogActionType.secondary,
+                ),
+                DialogAction(
+                  title: 'Danger!',
+                  onTap: () => print('Danger!'),
+                  type: DialogActionType.dangerous,
+                ),
+              ],
+            ),
+          ),
+          FlatButton(
+            child: Text('Bottom rounded dialog with actions'),
+            onPressed: () => showBottomRoundDialog(
+              context: context,
+              title: 'Lorem ipsum',
+              children: [
+                Center(
+                  child: Text('Hello world'),
+                ),
+              ],
+              actions: [
+                DialogAction(
+                  title: 'Primary',
+                  onTap: () => print('Primary'),
+                ),
+                DialogAction(
+                  title: 'Secondary',
+                  onTap: () => print('Secondary'),
+                  type: DialogActionType.secondary,
+                ),
+                DialogAction(
+                  title: 'Danger!',
+                  onTap: () => print('Danger!'),
+                  type: DialogActionType.dangerous,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -4,12 +4,17 @@ import 'package:row_collection/row_collection.dart';
 /// Constant which describes the roundness of the mentioned dialog
 const kDialogCornerRadius = 12.0;
 
+/// Constant which describes the roundness of the action buttons rendered inside
+/// a rounded dialog.
+const kDialogActionButtonRadius = 6.0;
+
 /// Function that builds a centered-rounded dialog. It contains a title, with a
 /// predefined text style, and a varietude of children.
 Future<T> showRoundDialog<T>({
   @required BuildContext context,
   @required String title,
   @required List<Widget> children,
+  List<DialogAction> actions,
 }) {
   return showDialog(
     context: context,
@@ -23,6 +28,7 @@ Future<T> showRoundDialog<T>({
       child: _RoundDialog.center(
         title: title,
         children: children,
+        actions: actions,
       ),
     ),
   );
@@ -34,6 +40,7 @@ Future<T> showBottomRoundDialog<T>({
   @required BuildContext context,
   @required String title,
   @required List<Widget> children,
+  List<DialogAction> actions,
 }) {
   return showModalBottomSheet(
     context: context,
@@ -41,6 +48,7 @@ Future<T> showBottomRoundDialog<T>({
     builder: (context) => _RoundDialog.bottom(
       title: title,
       children: children,
+      actions: actions,
     ),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
@@ -56,17 +64,20 @@ class _RoundDialog extends StatelessWidget {
   final String title;
   final List<Widget> children;
   final bool isBottomDialog;
+  final List<DialogAction> actions;
 
   factory _RoundDialog.center({
     Key key,
     @required String title,
     @required List<Widget> children,
+    List<DialogAction> actions,
   }) {
     return _RoundDialog._(
       key: key,
       title: title,
       children: children,
       isBottomDialog: false,
+      actions: actions,
     );
   }
 
@@ -74,12 +85,14 @@ class _RoundDialog extends StatelessWidget {
     Key key,
     @required String title,
     @required List<Widget> children,
+    List<DialogAction> actions,
   }) {
     return _RoundDialog._(
       key: key,
       title: title,
       children: children,
       isBottomDialog: true,
+      actions: actions,
     );
   }
 
@@ -88,6 +101,7 @@ class _RoundDialog extends StatelessWidget {
     this.title,
     this.children,
     this.isBottomDialog = false,
+    this.actions,
   }) : super(key: key);
 
   @override
@@ -120,8 +134,91 @@ class _RoundDialog extends StatelessWidget {
               ),
             ),
           ),
+          if (actions != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  for (final action in actions)
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                        style: Theme.of(context).brightness == Brightness.light
+                            ? OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(kDialogActionButtonRadius),
+                                  ),
+                                ),
+                                primary: action.type == DialogActionType.primary
+                                    ? Theme.of(context)
+                                        .accentTextTheme
+                                        .headline6
+                                        .color
+                                    : action.type == DialogActionType.secondary
+                                        ? Theme.of(context).accentColor
+                                        : Colors.white,
+                                backgroundColor: action.type ==
+                                        DialogActionType.primary
+                                    ? Theme.of(context).accentColor
+                                    : action.type == DialogActionType.secondary
+                                        ? null
+                                        : Colors.red,
+                                textStyle:
+                                    Theme.of(context).textTheme.subtitle1,
+                              )
+                            : OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(kDialogActionButtonRadius),
+                                  ),
+                                ),
+                                primary: action.type == DialogActionType.primary
+                                    ? Colors.black
+                                    : action.type == DialogActionType.secondary
+                                        ? Theme.of(context)
+                                            .textTheme
+                                            .caption
+                                            .color
+                                        : Colors.white,
+                                backgroundColor: action.type ==
+                                        DialogActionType.primary
+                                    ? Colors.white
+                                    : action.type == DialogActionType.secondary
+                                        ? null
+                                        : Colors.red,
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .subtitle1
+                                    .copyWith(fontWeight: FontWeight.bold),
+                              ),
+                        child: Text(action.title),
+                        onPressed: action.onTap,
+                      ),
+                    )
+                ],
+              ),
+            ),
         ],
       ),
     );
   }
+}
+
+/// Describes all the possible types a dialog action can be.
+enum DialogActionType { primary, secondary, dangerous }
+
+/// Holds the information about an action that can be performed inside a
+/// rounded dialog. It's displayed via a [OutlinedButton].
+class DialogAction {
+  final String title;
+  final VoidCallback onTap;
+  final DialogActionType type;
+
+  const DialogAction({
+    @required this.title,
+    this.onTap,
+    this.type = DialogActionType.primary,
+  })  : assert(title != null),
+        assert(type != null);
 }
