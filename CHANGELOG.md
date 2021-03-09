@@ -1,3 +1,7 @@
+## [0.2.1] - March 9th, 2021
+
++ Added default padding to the body of a `RoundDialog`.
+
 ## [0.2.0] - March 8th, 2021
 
 + Made `details` parameter on `CardCell.header` optional.

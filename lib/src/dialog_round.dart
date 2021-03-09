@@ -8,6 +8,9 @@ const kDialogCornerRadius = 12.0;
 /// a rounded dialog.
 const kDialogActionButtonRadius = 6.0;
 
+/// Default padding applied to the body of a rounded dialog.
+const kDialogContentPadding = const EdgeInsets.symmetric(horizontal: 20);
+
 /// Function that builds a centered-rounded dialog. It contains a title, with a
 /// predefined text style, and a varietude of children.
 Future<T> showRoundDialog<T>({
@@ -15,9 +18,14 @@ Future<T> showRoundDialog<T>({
   @required String title,
   @required List<Widget> children,
   List<DialogAction> actions,
+  bool barrierDismissible = true,
+  Color barrierColor = Colors.black54,
+  EdgeInsets padding = kDialogContentPadding,
 }) {
   return showDialog(
     context: context,
+    barrierDismissible: barrierDismissible,
+    barrierColor: barrierColor,
     builder: (context) => Dialog(
       backgroundColor: Theme.of(context).dialogBackgroundColor,
       shape: RoundedRectangleBorder(
@@ -29,6 +37,7 @@ Future<T> showRoundDialog<T>({
         title: title,
         children: children,
         actions: actions,
+        padding: padding,
       ),
     ),
   );
@@ -41,14 +50,22 @@ Future<T> showBottomRoundDialog<T>({
   @required String title,
   @required List<Widget> children,
   List<DialogAction> actions,
+  bool barrierDismissible = true,
+  Color barrierColor = Colors.black54,
+  bool enableDrag = true,
+  EdgeInsets padding = kDialogContentPadding,
 }) {
   return showModalBottomSheet(
     context: context,
     backgroundColor: Theme.of(context).dialogBackgroundColor,
+    isDismissible: barrierDismissible,
+    barrierColor: barrierColor,
+    enableDrag: enableDrag,
     builder: (context) => _RoundDialog.bottom(
       title: title,
       children: children,
       actions: actions,
+      padding: padding,
     ),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
@@ -65,12 +82,14 @@ class _RoundDialog extends StatelessWidget {
   final List<Widget> children;
   final bool isBottomDialog;
   final List<DialogAction> actions;
+  final EdgeInsets padding;
 
   factory _RoundDialog.center({
     Key key,
     @required String title,
     @required List<Widget> children,
     List<DialogAction> actions,
+    EdgeInsets padding,
   }) {
     return _RoundDialog._(
       key: key,
@@ -78,6 +97,7 @@ class _RoundDialog extends StatelessWidget {
       children: children,
       isBottomDialog: false,
       actions: actions,
+      padding: padding,
     );
   }
 
@@ -86,6 +106,7 @@ class _RoundDialog extends StatelessWidget {
     @required String title,
     @required List<Widget> children,
     List<DialogAction> actions,
+    EdgeInsets padding,
   }) {
     return _RoundDialog._(
       key: key,
@@ -93,6 +114,7 @@ class _RoundDialog extends StatelessWidget {
       children: children,
       isBottomDialog: true,
       actions: actions,
+      padding: padding,
     );
   }
 
@@ -102,6 +124,7 @@ class _RoundDialog extends StatelessWidget {
     this.children,
     this.isBottomDialog = false,
     this.actions,
+    this.padding,
   }) : super(key: key);
 
   @override
@@ -129,6 +152,7 @@ class _RoundDialog extends StatelessWidget {
           ),
           Flexible(
             child: SingleChildScrollView(
+              padding: padding,
               child: ListBody(
                 children: children,
               ),
