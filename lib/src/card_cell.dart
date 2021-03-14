@@ -6,10 +6,14 @@ import 'package:row_collection/row_collection.dart';
 /// No shadows and a little rounded border :)
 class CardCell extends StatelessWidget {
   final Widget child;
+  final EdgeInsets padding;
+  final Clip clipBehavior;
 
   const CardCell({
     Key key,
     @required this.child,
+    this.padding = const EdgeInsets.all(16),
+    this.clipBehavior = Clip.antiAlias,
   }) : super(key: key);
 
   /// Custom [CardCell] design, specifically for page headings.
@@ -90,6 +94,7 @@ class CardCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      clipBehavior: clipBehavior,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -101,7 +106,7 @@ class CardCell extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: padding,
         child: child,
       ),
     );

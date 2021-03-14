@@ -1,3 +1,7 @@
+## [0.2.2] - March 14th, 2021
+
++ Added `padding` & `clip` parameters to `CardCell` widget.
+
 ## [0.2.1] - March 9th, 2021
 
 + Added default padding to the body of a `RoundDialog`.
