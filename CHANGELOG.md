@@ -1,3 +1,7 @@
+## [0.2.3] - April 5th, 2021
+
++ Added overflow properties to `ItemCell` widget.
+
 ## [0.2.2] - March 14th, 2021
 
 + Added `padding` & `clip` parameters to `CardCell` widget.
