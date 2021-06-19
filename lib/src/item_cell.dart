@@ -32,7 +32,7 @@ class ItemCell extends StatelessWidget {
             color: Theme.of(context).textTheme.caption.color,
           ),
           Separator.spacer(space: 6),
-          Expanded(
+          Flexible(
             child: Text(
               text,
               overflow: textOverflow,

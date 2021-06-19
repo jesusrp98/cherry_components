@@ -1,4 +1,4 @@
-## [0.2.3+1] - April 5th, 2021
+## [0.2.3+2] - April 5th, 2021
 
 + Added overflow properties to `ItemCell` widget.
 
