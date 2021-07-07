@@ -1,3 +1,8 @@
+## [0.3.0] - July 7th, 2021
+
++ Added `IconShadow` widget.
++ Bumped dependencies.
+
 ## [0.2.3+2] - April 5th, 2021
 
 + Added overflow properties to `ItemCell` widget.

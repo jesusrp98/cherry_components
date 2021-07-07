@@ -1,6 +1,6 @@
 name: cherry_components
 description: Collection of fresh UI components.
-version: 0.2.3+2
+version: 0.3.0
 homepage: https://github.com/jesusrp98/cherry_components
 
 environment:
@@ -10,9 +10,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cached_network_image: ^2.5.1
-  row_collection: ^0.2.5
-  expand_widget: ^2.0.0
+  cached_network_image: ">=3.0.0 <4.0.0"
+  decorated_icon: ">=1.2.1 <2.0.0"
+  row_collection: ">=0.2.5 <1.0.0"
+  expand_widget: ">=2.1.0 <3.0.0"
 
 dev_dependencies:
   flutter_test:
