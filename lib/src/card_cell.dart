@@ -7,14 +7,14 @@ import 'package:row_collection/row_collection.dart';
 class CardCell extends StatelessWidget {
   final Widget child;
   final EdgeInsets padding;
-  final Clip clipBehavior;
 
   const CardCell({
     Key key,
     @required this.child,
     this.padding = const EdgeInsets.all(16),
-    this.clipBehavior = Clip.antiAlias,
-  }) : super(key: key);
+  })  : assert(child != null),
+        assert(padding != null),
+        super(key: key);
 
   /// Custom [CardCell] design, specifically for page headings.
   factory CardCell.header(
@@ -24,44 +24,51 @@ class CardCell extends StatelessWidget {
     @required String title,
     List<Widget> subtitle,
     String details,
+    EdgeInsets padding = const EdgeInsets.all(16),
   }) {
     return CardCell(
       key: key,
-      child: RowLayout(children: <Widget>[
-        Row(children: <Widget>[
-          if (leading != null) ...[
-            leading,
-            Separator.spacer(space: 12),
-          ],
-          Expanded(
-            child: RowLayout(
-              space: 8,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headline6.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                ),
-                if (subtitle != null)
-                  RowLayout(
-                    space: 4,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: subtitle,
-                  ),
+      padding: padding,
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              if (leading != null) ...[
+                leading,
+                Separator.spacer(space: 12),
               ],
-            ),
+              Expanded(
+                child: RowLayout(
+                  space: 8,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.headline6.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                    ),
+                    if (subtitle != null)
+                      RowLayout(
+                        space: 4,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: subtitle,
+                      ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ]),
-        if (details != null) ...[
-          Separator.divider(),
-          ExpandText(details),
-        ]
-      ]),
+          SizedBox(width: 12),
+          if (details != null) ...[
+            Separator.divider(),
+            ExpandText(details),
+          ]
+        ],
+      ),
     );
   }
 
@@ -71,30 +78,35 @@ class CardCell extends StatelessWidget {
     Key key,
     @required String title,
     @required Widget child,
+    EdgeInsets padding = const EdgeInsets.all(16),
   }) {
     return CardCell(
       key: key,
-      child: RowLayout(children: <Widget>[
-        if (title != null)
-          Text(
-            title.toUpperCase(),
-            maxLines: 1,
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.headline6.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-          ),
-        child
-      ]),
+      padding: padding,
+      child: Column(
+        children: <Widget>[
+          if (title != null)
+            Text(
+              title.toUpperCase(),
+              maxLines: 1,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+            ),
+          SizedBox(height: 12),
+          child
+        ],
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      clipBehavior: clipBehavior,
+      clipBehavior: Clip.antiAlias,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),

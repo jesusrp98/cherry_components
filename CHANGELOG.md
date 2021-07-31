@@ -1,3 +1,7 @@
+## [0.3.1] - July 31st, 2021
+
++ Added `padding` parameter to factory `CardCell` constructors.
+
 ## [0.3.0] - July 7th, 2021
 
 + Added `IconShadow` widget.
