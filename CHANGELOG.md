@@ -1,4 +1,4 @@
-## [0.3.1] - July 31st, 2021
+## [0.3.1+1] - July 31st, 2021
 
 + Added `padding` parameter to factory `CardCell` constructors.
 

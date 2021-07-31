@@ -29,46 +29,41 @@ class CardCell extends StatelessWidget {
     return CardCell(
       key: key,
       padding: padding,
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              if (leading != null) ...[
-                leading,
-                Separator.spacer(space: 12),
-              ],
-              Expanded(
-                child: RowLayout(
-                  space: 8,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline6.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                    ),
-                    if (subtitle != null)
-                      RowLayout(
-                        space: 4,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: subtitle,
+      child: RowLayout(children: <Widget>[
+        Row(children: <Widget>[
+          if (leading != null) ...[
+            leading,
+            Separator.spacer(space: 12),
+          ],
+          Expanded(
+            child: RowLayout(
+              space: 8,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
-                  ],
                 ),
-              ),
-            ],
+                if (subtitle != null)
+                  RowLayout(
+                    space: 4,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: subtitle,
+                  ),
+              ],
+            ),
           ),
-          SizedBox(width: 12),
-          if (details != null) ...[
-            Separator.divider(),
-            ExpandText(details),
-          ]
-        ],
-      ),
+        ]),
+        if (details != null) ...[
+          Separator.divider(),
+          ExpandText(details),
+        ]
+      ]),
     );
   }
 
@@ -83,23 +78,20 @@ class CardCell extends StatelessWidget {
     return CardCell(
       key: key,
       padding: padding,
-      child: Column(
-        children: <Widget>[
-          if (title != null)
-            Text(
-              title.toUpperCase(),
-              maxLines: 1,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.headline6.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-            ),
-          SizedBox(height: 12),
-          child
-        ],
-      ),
+      child: RowLayout(children: <Widget>[
+        if (title != null)
+          Text(
+            title.toUpperCase(),
+            maxLines: 1,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(context).textTheme.headline6.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+          ),
+        child
+      ]),
     );
   }
 
