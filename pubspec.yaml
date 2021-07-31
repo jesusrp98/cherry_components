@@ -4,7 +4,7 @@ version: 0.3.1+1
 homepage: https://github.com/jesusrp98/cherry_components
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -12,8 +12,8 @@ dependencies:
 
   cached_network_image: ">=3.0.0 <4.0.0"
   decorated_icon: ">=1.2.1 <2.0.0"
-  row_collection: ">=0.2.5 <1.0.0"
   expand_widget: ">=2.1.0 <3.0.0"
+  gap: ">=2.0.0 <3.0.0"
 
 dev_dependencies:
   flutter_test:

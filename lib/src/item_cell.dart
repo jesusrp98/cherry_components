@@ -1,5 +1,5 @@
+import 'package:cherry_components/cherry_components.dart';
 import 'package:flutter/material.dart';
-import 'package:row_collection/row_collection.dart';
 
 /// Shows information rendering a small clickable widget.
 /// You can use the [icon] and [text] properties to display the info.
@@ -25,13 +25,13 @@ class ItemCell extends StatelessWidget {
       onTap: onTap,
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
+        children: [
           Icon(
             icon,
             size: 16,
             color: Theme.of(context).textTheme.caption.color,
           ),
-          Separator.spacer(space: 6),
+          Separator.spacer(Space.small),
           Flexible(
             child: Text(
               text,

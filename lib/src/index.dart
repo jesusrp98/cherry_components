@@ -8,3 +8,4 @@ export 'index.dart';
 export 'item_cell.dart';
 export 'list_cell.dart';
 export 'radio_cell.dart';
+export 'separator.dart';

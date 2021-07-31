@@ -1,5 +1,5 @@
+import 'package:cherry_components/cherry_components.dart';
 import 'package:flutter/material.dart';
-import 'package:row_collection/row_collection.dart';
 
 const _kRadioSize = 22.0;
 
@@ -28,7 +28,7 @@ class RadioCell<T> extends StatelessWidget {
         color:
             _isChecked ? Theme.of(context).accentColor.withOpacity(0.24) : null,
         child: Row(
-          children: <Widget>[
+          children: [
             Icon(
               _isChecked ? Icons.check_circle : Icons.panorama_fish_eye,
               size: _kRadioSize,
@@ -36,7 +36,7 @@ class RadioCell<T> extends StatelessWidget {
                   ? Theme.of(context).accentColor
                   : Theme.of(context).textTheme.caption.color,
             ),
-            Separator.spacer(space: 16),
+            Separator.spacer(Space.large),
             Text(
               title,
               style: Theme.of(context).textTheme.subtitle1,

@@ -1,6 +1,6 @@
+import 'package:cherry_components/cherry_components.dart';
 import 'package:expand_widget/expand_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:row_collection/row_collection.dart';
 
 /// This widget applies a custom theme to a [Card] widget.
 /// No shadows and a little rounded border :)
@@ -29,41 +29,51 @@ class CardCell extends StatelessWidget {
     return CardCell(
       key: key,
       padding: padding,
-      child: RowLayout(children: <Widget>[
-        Row(children: <Widget>[
-          if (leading != null) ...[
-            leading,
-            Separator.spacer(space: 12),
-          ],
-          Expanded(
-            child: RowLayout(
-              space: 8,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headline6.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                ),
-                if (subtitle != null)
-                  RowLayout(
-                    space: 4,
+      child: Column(
+        children: Separator.spaceChildren(
+          children: [
+            Row(
+              children: [
+                if (leading != null) ...[
+                  leading,
+                  Separator.spacer(),
+                ],
+                Expanded(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: subtitle,
+                    children: Separator.spaceChildren(
+                      space: 8,
+                      children: [
+                        Text(
+                          title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.headline6.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                        ),
+                        if (subtitle != null)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: Separator.spaceChildren(
+                              space: Space.superSmall,
+                              children: subtitle,
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
+                ),
               ],
             ),
-          ),
-        ]),
-        if (details != null) ...[
-          Separator.divider(),
-          ExpandText(details),
-        ]
-      ]),
+            if (details != null) ...[
+              Separator.divider(),
+              ExpandText(details),
+            ]
+          ],
+        ),
+      ),
     );
   }
 
@@ -78,20 +88,24 @@ class CardCell extends StatelessWidget {
     return CardCell(
       key: key,
       padding: padding,
-      child: RowLayout(children: <Widget>[
-        if (title != null)
-          Text(
-            title.toUpperCase(),
-            maxLines: 1,
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.headline6.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-          ),
-        child
-      ]),
+      child: Column(
+        children: Separator.spaceChildren(
+          children: [
+            if (title != null)
+              Text(
+                title.toUpperCase(),
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.headline6.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+              ),
+            child
+          ],
+        ),
+      ),
     );
   }
 

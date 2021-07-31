@@ -1,5 +1,5 @@
+import 'package:cherry_components/cherry_components.dart';
 import 'package:flutter/material.dart';
-import 'package:row_collection/row_collection.dart';
 
 /// Widget similar to [ListTile] with custom theme
 /// and constructors.
@@ -51,7 +51,7 @@ class ListCell extends StatelessWidget {
       leading: leading,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children: [
           Text(
             title,
             style: Theme.of(context).textTheme.subtitle1.copyWith(
@@ -60,7 +60,7 @@ class ListCell extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
           ),
-          if (subtitle != null) Separator.spacer(space: 4),
+          if (subtitle != null) Separator.spacer(Space.superSmall),
         ],
       ),
       subtitle: subtitle == null

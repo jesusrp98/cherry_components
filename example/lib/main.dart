@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'RadioCell',
   ];
 
-  final List<Widget> _views = [
+  final _views = [
     CacheImageView(),
     CardCellView(),
     DetailsCellView(),
