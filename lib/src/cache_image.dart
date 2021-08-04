@@ -2,14 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-/// This class customized the image download & caching experience.
-///
-/// It uses [CachedNetworkImage] when in mobile & desktop. When in web,
-/// it will use regular [Image.network] for compatibility.
-///
-/// If the download is unsuccesful, a [Icons.image] will be display.
-///
-/// It also has a fading animaion when the image loads.
+@Deprecated(
+  'This widget has no real use now and will be deprecated in the near future',
+)
 class CacheImage extends StatelessWidget {
   /// URL attached to the image to be downloaded & cached.
   final String url;

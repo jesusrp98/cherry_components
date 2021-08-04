@@ -26,7 +26,6 @@ class _MyHomePageState extends State<MyHomePage> {
   TextTheme _textTheme = GoogleFonts.robotoTextTheme();
 
   final List<String> _tabTitles = [
-    'CacheImage',
     'CardCell',
     'DetailsCell',
     'DialogRound',
@@ -37,7 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   final _views = [
-    CacheImageView(),
     CardCellView(),
     DetailsCellView(),
     DialogRoundView(),
