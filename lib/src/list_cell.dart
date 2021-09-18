@@ -55,7 +55,7 @@ class ListCell extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.subtitle1.copyWith(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: subtitle != null ? FontWeight.bold : null,
                 ),
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
